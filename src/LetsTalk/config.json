@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "LetsTalk"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-LetsTalk-65f299b3-cfeb-4925-a4e1-982bb7a5d706;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
