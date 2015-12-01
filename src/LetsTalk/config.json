@@ -4,7 +4,7 @@
   },
   "Data": {
     "DefaultConnection": {
-      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-LetsTalk-65f299b3-cfeb-4925-a4e1-982bb7a5d706;Trusted_Connection=True;MultipleActiveResultSets=true"
+      "ConnectionString": "Server=tcp:cw652hymb5.database.windows.net,1433;Database=LetsGoChat;User ID=zubkov@cw652hymb5;Password=Id-502055;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;;MultipleActiveResultSets=true"
     }
   }
 }
