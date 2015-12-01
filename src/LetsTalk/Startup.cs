@@ -66,8 +66,8 @@ namespace LetsTalk
             // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
             services.Configure<FacebookAuthenticationOptions>(options =>
             {
-                options.AppId = Configuration["Authentication:Facebook:AppId"];
-                options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                options.AppId = "1532006140451673"; //Configuration["Authentication:Facebook:AppId"];
+                options.AppSecret = "a6f43da0cb2b67107889189a3fae0327"; // Configuration["Authentication:Facebook:AppSecret"];
             });
 
             services.Configure<MicrosoftAccountAuthenticationOptions>(options =>
@@ -118,7 +118,7 @@ namespace LetsTalk
 
             // Add authentication middleware to the request pipeline. You can configure options such as Id and Secret in the ConfigureServices method.
             // For more information see http://go.microsoft.com/fwlink/?LinkID=532715
-            // app.UseFacebookAuthentication();
+            app.UseFacebookAuthentication();
             // app.UseGoogleAuthentication();
             // app.UseMicrosoftAccountAuthentication();
             // app.UseTwitterAuthentication();
