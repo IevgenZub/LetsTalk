@@ -31,6 +31,8 @@ namespace LetsTalk.Controllers
         {
             ViewData["Message"] = "Find new friends from Facebook";
 
+            ViewBag.UserName = Context.User.Identity.Name;
+
             return View();
         }
 
