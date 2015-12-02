@@ -8,10 +8,22 @@
         <input type="button" id="sendmessage" value="Send" />
     </div>
 
+    <br />
+
     <ul data-ng-repeat="message in vm.messages">
         <li>
             <strong>{{message.user}}: </strong>
-            {{message.text}}
+            [{{message.createDate}}] {{message.text}}
+
+            <!--
+            <ul ng-repeat="(key, value) in players | groupBy: 'team'">
+                Group name: {{ key }}
+                <li ng-repeat="player in value">
+                    player: {{ player.name }}
+                </li>
+            </ul>
+            -->
+
         </li>
     </ul>
 </div>

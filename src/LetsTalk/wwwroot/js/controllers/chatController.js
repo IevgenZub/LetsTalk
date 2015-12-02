@@ -26,8 +26,8 @@
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
-            chat.client.broadcastMessage = function (name, message) {
-                vm.messages.push({ user: name, text: message });
+            chat.client.broadcastMessage = function (id, date, name, message) {
+                vm.messages.push({ messageId: id, createDate: date, user: name, text: message});
                 $scope.$apply()
             };
 
@@ -43,6 +43,16 @@
                     $('#message').val('').focus();
                 });
             });
+        }
+
+        function guid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                  .toString(16)
+                  .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+              s4() + '-' + s4() + s4() + s4();
         }
     }
 })();
