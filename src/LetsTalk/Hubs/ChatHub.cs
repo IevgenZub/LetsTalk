@@ -22,7 +22,7 @@ namespace LetsTalk.Hubs
         public void Send(string name, string message)
         {
             // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(Guid.NewGuid().ToString(), DateTime.Now.ToShortTimeString(), name, message);
+            Clients.All.broadcastMessage(Guid.NewGuid().ToString(), DateTime.Now.ToLocalTime(), name, message);
         }
     }
 }
