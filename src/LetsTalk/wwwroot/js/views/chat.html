@@ -9,4 +9,11 @@
         <input type="text" id="displayname" />
         <ul id="discussion"></ul>
     </div>
+
+    <ul data-ng-repeat="message in vm.messages">
+        <li>
+            <strong>{{message.user}}: </strong>
+            {{message.text}}
+        </li>
+    </ul>
 </div>

@@ -11,36 +11,32 @@
 
     var controllerId = 'chatController';
     angular.module('app').controller(controllerId,
-    ['logger', chatController]);
+    ['logger', '$scope', chatController]);
 
-    function chatController(logger) {
+    function chatController(logger, $scope) {
         logger = logger.forSource(controllerId);
 
         var vm = this;
-        // vm.countriesList = [];
+        vm.messages = [];
 
         initialize();
 
         function initialize() {
-            // getCountriesList();
-
+            
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
             chat.client.broadcastMessage = function (name, message) {
-                // Html encode display name and message. 
-                var encodedName = $('<div />').text(name).html();
-                var encodedMsg = $('<div />').text(message).html();
-                // Add the message to the page. 
-                $('#discussion').append('<li><strong>' + encodedName
-                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                vm.messages.push({ user: name, text: message });
+                $scope.$apply()
             };
             // Get the user name and store it to prepend to messages.
-            $('#displayname').val(prompt('Enter your name:', ''));
+            //$('#displayname').val(prompt('Enter your name:', ''));
             // Set initial focus to message input box.  
             $('#message').focus();
             // Start the connection.
             $.connection.hub.start().done(function () {
+
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub. 
                     chat.server.send($('#displayname').val(), $('#message').val());
@@ -49,13 +45,5 @@
                 });
             });
         }
-
-        /*
-        function getCountriesList() {
-            return datacontext.getCountries().then(function (data) {
-                return vm.countriesList = data;
-            });
-        }
-        */
     }
 })();
