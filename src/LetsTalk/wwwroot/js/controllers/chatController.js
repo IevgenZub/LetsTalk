@@ -36,24 +36,13 @@
 
             // Start the connection.
             $.connection.hub.start().done(function () {
-
-                $('#sendmessage').click(function () {
+                $scope.sendMessage = function () {
                     // Call the Send method on the hub. 
                     chat.server.send(window.userName, $('#message').val());
                     // Clear text box and reset focus for next comment. 
                     $('#message').val('').focus();
-                });
+                }
             });
-        }
-
-        function guid() {
-            function s4() {
-                return Math.floor((1 + Math.random()) * 0x10000)
-                  .toString(16)
-                  .substring(1);
-            }
-            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-              s4() + '-' + s4() + s4() + s4();
         }
     }
 })();

@@ -3,10 +3,10 @@
     --------------------------------------------------->
 <div class="well" data-ng-controller="chatController as vm">
 
-    <div class="container">
+    <form class="container" ng-submit="sendMessage()">
         <input type="text" id="message" />
-        <input type="button" id="sendmessage" value="Send" />
-    </div>
+        <input type="submit" id="sendmessage" value="Send" />
+    </form>
 
     <br />
 
