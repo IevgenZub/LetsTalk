@@ -13,7 +13,7 @@
     <ul data-ng-repeat="message in vm.messages">
         <li>
             <strong>{{message.user}}: </strong>
-            [{{message.createDate}}] {{message.text}}
+            [{{message.createDate.toLocaleDateSting() + message.createDate.toLocaleTimeString()}}] {{message.text}}
 
             <!--
             <ul ng-repeat="(key, value) in players | groupBy: 'team'">
