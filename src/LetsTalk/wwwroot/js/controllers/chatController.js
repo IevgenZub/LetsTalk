@@ -27,7 +27,8 @@
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
             chat.client.broadcastMessage = function (id, date, name, message) {
-                vm.messages.push({ messageId: id, createDate: date, user: name, text: message});
+                var createDate = new Date(date).toLocaleDateString() + " " + new Date(date).toLocaleTimeString();
+                vm.messages.push({ messageId: id, createDate: createDate, user: name, text: message});
                 $scope.$apply()
             };
 
