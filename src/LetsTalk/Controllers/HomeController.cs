@@ -27,6 +27,13 @@ namespace LetsTalk.Controllers
             return View();
         }
 
+        public IActionResult Chat()
+        {
+            ViewData["Message"] = "Find new friends from Facebook";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View("~/Views/Shared/Error.cshtml");

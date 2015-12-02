@@ -86,6 +86,11 @@ namespace LetsTalk
             // Register application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+                        services.AddSignalR(options =>
+            {
+                options.Hubs.EnableDetailedErrors = true;
+            });
         }
 
         // Configure is called after ConfigureServices is called.
@@ -133,6 +138,8 @@ namespace LetsTalk
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+
+            app.UseSignalR();
         }
     }
 }
