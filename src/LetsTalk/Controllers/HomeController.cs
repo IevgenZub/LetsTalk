@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Authorization;
 
 namespace LetsTalk.Controllers
 {
@@ -27,6 +28,7 @@ namespace LetsTalk.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Chat()
         {
             ViewData["Message"] = "Find new friends from Facebook";
