@@ -9,7 +9,8 @@
     </form>
 
     <br />
-    <strong>{{vm.last_name}}</strong>
+    <strong>{{vm.userInfo.name}}</strong>
+    <img ng-src="{{vm.userInfo.picture.data.url}}" />
     <br />
 
     <ul data-ng-repeat="message in vm.messages">

@@ -18,11 +18,14 @@
 
         var vm = this;
         vm.messages = [];
-        vm.last_name = 'who knows';
-
+        
         initialize();
 
         function initialize() {
+
+            facebookService.getUserInfo().then(function (response) {
+                vm.userInfo = response;
+            });
 
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
@@ -34,8 +37,7 @@
             };
 
             $('#message').focus();
-            fbAsyncInit();
-
+            
             // Start the connection.
             $.connection.hub.start().done(function () {
                 $scope.sendMessage = function () {
@@ -47,11 +49,6 @@
                         $('#message').val('').focus();
                     }
                 }
-
-                facebookService.getMyLastName()
-                    .then(function (response) {
-                        vm.last_name = response.last_name;
-                    });
             });
         }
     }

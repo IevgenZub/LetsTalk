@@ -8,10 +8,10 @@
 
     angular.module('app').factory('facebookService', function ($q) {
         return {
-            getMyLastName: function () {
+            getUserInfo: function () {
                 var deferred = $q.defer();
                 FB.api('/me', {
-                    fields: 'last_name'
+                    fields: 'name, picture'
                 }, function (response) {
                     if (!response || response.error) {
                         deferred.reject('Error occured');
