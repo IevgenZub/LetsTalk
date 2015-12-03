@@ -3,27 +3,19 @@
     --------------------------------------------------->
 <div class="well" data-ng-controller="chatController as vm">
 
-    <form class="container" ng-submit="sendMessage()">
+    <form class="container" autocomplete="off" ng-submit="sendMessage()">
         <input type="text" id="message" />
         <input type="submit" id="sendmessage" value="Send" />
     </form>
 
+    <br />
+    <strong>{{last_name}}</strong>
     <br />
 
     <ul data-ng-repeat="message in vm.messages">
         <li>
             <strong>{{message.user}}: </strong>
             [{{message.createDate}}] {{message.text}}
-
-            <!--
-            <ul ng-repeat="(key, value) in players | groupBy: 'team'">
-                Group name: {{ key }}
-                <li ng-repeat="player in value">
-                    player: {{ player.name }}
-                </li>
-            </ul>
-            -->
-
         </li>
     </ul>
 </div>
