@@ -21,6 +21,25 @@
         </environment>
     </head>
     <body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1532006140451673',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -39,6 +58,8 @@
                         <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
+
+
                 </div>
             </div>
         </div>
@@ -46,6 +67,13 @@
             @RenderBody()
             <hr />
             <footer>
+                <p>
+                    <div class="fb-like"
+                         data-share="true"
+                         data-width="450"
+                         data-show-faces="true">
+                    </div>
+                </p>
                 <p>&copy; 2015 - Lets Go Chat</p>
             </footer>
         </div>
