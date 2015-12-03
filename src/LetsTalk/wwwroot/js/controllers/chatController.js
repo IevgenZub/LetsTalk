@@ -23,8 +23,7 @@
 
         function initialize() {
 
-            window.fbAsyncInit();
-
+           
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
@@ -47,6 +46,8 @@
                         $('#message').val('').focus();
                     }
                 }
+
+                window.fbAsyncInit();
             });
 
             facebookService.getUserInfo().then(function (response) {
