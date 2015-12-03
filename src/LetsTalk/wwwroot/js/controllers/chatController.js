@@ -23,9 +23,7 @@
 
         function initialize() {
 
-            facebookService.getUserInfo().then(function (response) {
-                vm.userInfo = response;
-            });
+            window.fbAsyncInit();
 
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
@@ -50,6 +48,11 @@
                     }
                 }
             });
+
+            facebookService.getUserInfo().then(function (response) {
+                vm.userInfo = response;
+            });
+
         }
     }
 })();
