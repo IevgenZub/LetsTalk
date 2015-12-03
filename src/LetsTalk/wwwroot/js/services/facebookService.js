@@ -1,10 +1,7 @@
 ﻿/***
- * Controller/ViewModel: countries 
  *
- * Support a view of all CountriesList
- *
- * Handles fetch and save of these lists
- *
+ *  Facebook Service
+ * 
  ***/
 (function () {
     'use strict';

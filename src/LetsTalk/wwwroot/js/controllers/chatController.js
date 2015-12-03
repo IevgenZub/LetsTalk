@@ -51,7 +51,6 @@
                 facebookService.getMyLastName()
                     .then(function (response) {
                         vm.last_name = response.last_name;
-                        $scope.$apply();
                     });
             });
         }
