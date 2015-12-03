@@ -30,7 +30,7 @@
             chat.client.broadcastMessage = function (id, date, name, message) {
                 var createDate = new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
                 vm.messages.push({ messageId: id, createDate: createDate, user: name, text: message });
-                $scope.$apply()
+                $scope.$apply();
             };
 
             $('#message').focus();
@@ -51,6 +51,7 @@
                 facebookService.getMyLastName()
                     .then(function (response) {
                         vm.last_name = response.last_name;
+                        $scope.$apply();
                     });
             });
         }
