@@ -22,7 +22,6 @@
         initialize();
 
         function initialize() {
-
            
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
@@ -46,14 +45,18 @@
                         $('#message').val('').focus();
                     }
                 }
-
-                window.fbAsyncInit();
+                
             });
 
-            facebookService.getUserInfo().then(function (response) {
-                vm.userInfo = response;
-            });
+            setTimeout(function () {
+                fbAsyncInit();
+            }, 1000);
 
+            setTimeout(function () {
+                facebookService.getUserInfo().then(function (response) {
+                    vm.userInfo = response;
+                });
+            }, 1000);
         }
     }
 })();
