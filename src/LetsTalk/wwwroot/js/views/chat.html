@@ -1,17 +1,18 @@
 ﻿<!---------------------------------------------------
     Master view of Chat
     --------------------------------------------------->
-<div class="well" data-ng-controller="chatController as vm">
 
+<div class="well" data-ng-controller="chatController as vm">
+    <img ng-src="{{vm.userInfo.picture.data.url}}" />
+
+    <strong>{{vm.userInfo.name}}</strong>
+<p></p>
     <form class="container" autocomplete="off" ng-submit="sendMessage()">
         <input type="text" id="message" />
         <input type="submit" id="sendmessage" value="Send" />
     </form>
 
-    <br />
-    <strong>{{vm.userInfo.name}}</strong>
-    <img ng-src="{{vm.userInfo.picture.data.url}}" />
-    <br />
+
 
     <ul data-ng-repeat="message in vm.messages">
         <li>

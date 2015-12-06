@@ -40,7 +40,7 @@
                     var text = $('#message').val();
                     if (text != '') {
                         // Call the Send method on the hub. 
-                        chat.server.send(window.userName, text);
+                        chat.server.send(vm.userInfo.name, text);
                         // Clear text box and reset focus for next comment. 
                         $('#message').val('').focus();
                     }
