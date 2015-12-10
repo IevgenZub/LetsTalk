@@ -9,6 +9,7 @@
     "jquery-validation": "1.11.1",
     "jquery-validation-unobtrusive": "3.2.2",
     "angular": "1.4.8",
-    "signalr": "2.2.0"
+    "signalr": "2.2.0",
+    "angular-google-maps": "2.2.1"
   }
 }
