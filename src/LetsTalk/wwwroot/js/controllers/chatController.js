@@ -29,6 +29,7 @@
             chat.client.broadcastMessage = function (id, date, name, message) {
                 var createDate = new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
                 vm.messages.push({ messageId: id, createDate: createDate, user: name, text: message });
+                vm.infoWindow.setContent($('#currentUser').html() + '<div>' + message + '</div>')
                 $scope.$apply();
             };
 
@@ -55,8 +56,31 @@
             setTimeout(function () {
                 facebookService.getUserInfo().then(function (response) {
                     vm.userInfo = response;
+
+                    vm.infoWindow = new google.maps.InfoWindow({ map: window.map });
+
+                    // Try HTML5 geolocation.
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+
+                            vm.infoWindow.setPosition(pos);
+                            vm.infoWindow.setContent($('#currentUser').html());
+                            window.map.setCenter(pos);
+                        }, function () {
+                            //handleLocationError(true, infoWindow, map.getCenter());
+                        });
+                    } else {
+                        // Browser doesn't support Geolocation
+                        //handleLocationError(false, infoWindow, map.getCenter());
+                    }
                 });
             }, 1000);
         }
+
+
     }
 })();
