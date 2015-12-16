@@ -1,6 +1,9 @@
 ﻿@section scripts {
+    <script src="~/lib/lodash/lodash.min.js"></script>
     <script src="~/lib/angular/angular.js"></script>
     <script src="~/lib/signalr/jquery.signalr.js"></script>
+    <script src="~/lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="~/lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
     <script src="/signalr/js"></script>
     <script src="~/js/app.js"></script>
     <script src="~/js/logger.js"></script>
@@ -9,7 +12,9 @@
 }
 
 <h1>Live Chat!</h1>
-
+<style>
+    .angular-google-map-container { height: 400px; }
+</style>
 <script>
     window.userName = "@ViewBag.UserName";
 
