@@ -44,7 +44,7 @@
                     var text = $('#message').val();
                     if (text != '') {
                         // Call the Send method on the hub. 
-                        chat.server.send(vm.userInfo.name, text);
+                        chat.server.send(this.userInfo.name, text);
                         // Clear text box and reset focus for next comment. 
                         $('#message').val('').focus();
                     }
@@ -57,8 +57,8 @@
 
             setTimeout(function () {
                 facebookService.getUserInfo().then(function (response) {
-                    vm.userInfo = response;
-
+                    $scope.userInfo = response;
+                    
                     renderCurrentUserLocation();
                 });
             }, 1000);

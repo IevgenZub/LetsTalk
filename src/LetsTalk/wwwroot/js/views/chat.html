@@ -3,12 +3,18 @@
     --------------------------------------------------->
 <div class="well" data-ng-controller="chatController as vm">
 
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-window coords='map.center' show='true'>
+            <div>
+                {{userInfo.name}}
+                <img ng-src="{{userInfo.picture.data.url}}" />
+            </div>
+        </ui-gmap-window>
+    </ui-gmap-google-map>
 
     <!--Current User-->
+
     <div id="currentUser">
-        <img ng-src="{{vm.userInfo.picture.data.url}}" />
-        <strong>{{vm.userInfo.name}}</strong>
     </div>
 
     <p></p>
