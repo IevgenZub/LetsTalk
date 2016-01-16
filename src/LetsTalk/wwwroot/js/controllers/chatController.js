@@ -68,7 +68,13 @@
 
                         facebookService.getUserInfo().then(function (response) {
                             $scope.userInfo = response;
-                            renderCurrentUserLocation();
+                            navigator.geolocation.getCurrentPosition(function (position) {
+                                $scope.map = {
+                                    center: { latitude: position.coords.latitude, longitude: position.coords.longitude },
+                                    zoom: 8
+                                };
+                                $scope.$apply();
+                            });
                         });
                     } else if (response.status === 'not_authorized') {
                         // the user is logged in to Facebook, 
@@ -78,16 +84,6 @@
                     }
                 });
             }, 2000);
-        }
-
-        function renderCurrentUserLocation() {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                $scope.map = {
-                    center: { latitude: position.coords.latitude, longitude: position.coords.longitude },
-                    zoom: 8
-                };
-                $scope.$apply();
-            });
         }
     }
 })();
