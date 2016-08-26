@@ -26,9 +26,9 @@
             // Declare a proxy to reference the hub. 
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
-            chat.client.broadcastMessage = function (id, date, name, message) {
+            chat.client.broadcastMessage = function (id, date, name, pictureUrl, hometown, message) {
                 var createDate = new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
-                vm.messages.push({ messageId: id, createDate: createDate, user: name, text: message });
+                vm.messages.push({ messageId: id, createDate: createDate, user: name, pictureUrl: pictureUrl, hometown: hometown, text: message });
                 $scope.$apply();
             };
 
@@ -44,7 +44,7 @@
                     var text = $('#message').val();
                     if (text != '') {
                         // Call the Send method on the hub. 
-                        chat.server.send(this.userInfo.name, text);
+                        chat.server.send(this.userInfo.name, this.userInfo.picture.data.url, this.userInfo.hometown.name, text);
                         // Clear text box and reset focus for next comment. 
                         $('#message').val('').focus();
                     }
@@ -68,13 +68,7 @@
 
                         facebookService.getUserInfo().then(function (response) {
                             $scope.userInfo = response;
-                            navigator.geolocation.getCurrentPosition(function (position) {
-                                $scope.map = {
-                                    center: { latitude: position.coords.latitude, longitude: position.coords.longitude },
-                                    zoom: 8
-                                };
-                                $scope.$apply();
-                            });
+
                         });
                     } else if (response.status === 'not_authorized') {
                         // the user is logged in to Facebook, 

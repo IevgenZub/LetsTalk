@@ -27,7 +27,7 @@
     FB.init({
       appId      : '1532006140451673',
       xfbml      : true,
-      version    : 'v2.5'
+      version    : 'v2.7'
     });
   };
 
@@ -74,21 +74,17 @@
                          data-show-faces="true">
                     </div>
                 </p>
-                <p>&copy; 2015 - Lets Go Chat</p>
+                <p>&copy; 2016 - Lets Go Chat</p>
             </footer>
         </div>
 
         <environment names="Development">
-            <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
             <script src="~/lib/hammer.js/hammer.js"></script>
             <script src="~/lib/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js"></script>
         </environment>
         <environment names="Staging,Production">
-            <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-
             <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
                     asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                     asp-fallback-test="window.jQuery">

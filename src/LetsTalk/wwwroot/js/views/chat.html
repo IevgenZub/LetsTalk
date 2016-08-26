@@ -1,23 +1,14 @@
 ﻿<!---------------------------------------------------
     Master view of Chat
     --------------------------------------------------->
-<div class="well" data-ng-controller="chatController as vm">
-
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-        <ui-gmap-window coords='map.center' show='true'>
-            <div>
-                {{userInfo.name}}
-                <img ng-src="{{userInfo.picture.data.url}}" />
-            </div>
-        </ui-gmap-window>
-    </ui-gmap-google-map>
+<div data-ng-controller="chatController as vm">
 
     <!--Current User-->
-
-    <div id="currentUser">
-    </div>
-
-    <p></p>
+    <p id="currentUser">
+        <img ng-src="{{userInfo.picture.data.url}}" style="float:left; padding:5px">
+        {{userInfo.name}}
+        {{userInfo.hometown.name}}
+    </p>
 
     <!--Chat Form-->
     <form class="container" autocomplete="off" ng-submit="sendMessage()">
@@ -26,9 +17,11 @@
     </form>
 
     <!--Chat Messages-->
-    <ul data-ng-repeat="message in vm.messages">
-        <li>
-            <strong>{{message.user}}: </strong>
+    <ul data-ng-repeat="message in vm.messages" class="well well-sm">
+        <li>            
+            <img ng-src="{{message.pictureUrl}}" >
+            {{message.hometown}},
+            {{message.user}}:  
             [{{message.createDate}}] {{message.text}}
         </li>
     </ul>

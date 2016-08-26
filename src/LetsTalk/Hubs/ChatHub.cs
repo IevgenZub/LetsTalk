@@ -47,10 +47,10 @@ namespace LetsTalk.Hubs
             return base.OnReconnected();
         }
 
-        public void Send(string name, string message)
+        public void Send(string name, string pictureUrl, string hometown, string message)
         {
             // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(Guid.NewGuid().ToString(), DateTime.Now, name, message);
+            Clients.All.broadcastMessage(Guid.NewGuid().ToString(), DateTime.Now, name, pictureUrl, hometown, message);
         }
     }
 }

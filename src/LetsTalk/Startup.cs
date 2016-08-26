@@ -68,6 +68,7 @@ namespace LetsTalk
             {
                 options.AppId = "1532006140451673"; //Configuration["Authentication:Facebook:AppId"];
                 options.AppSecret = "a6f43da0cb2b67107889189a3fae0327"; // Configuration["Authentication:Facebook:AppSecret"];
+                options.Scope.Add("user_hometown");
             });
 
             services.Configure<MicrosoftAccountAuthenticationOptions>(options =>

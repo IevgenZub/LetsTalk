@@ -11,7 +11,7 @@
             getUserInfo: function () {
                 var deferred = $q.defer();
                 FB.api('/me', {
-                    fields: 'name, picture'
+                    fields: 'name, picture, hometown'
                 }, function (response) {
                     if (!response || response.error) {
                         deferred.reject('Error occured');
