@@ -18,7 +18,8 @@
 
         var vm = this;
         vm.messages = [];
-        
+        vm.topics = [];
+
         initialize();
 
         function initialize() {
@@ -28,7 +29,14 @@
             // Create a function that the hub can call to broadcast messages.
             chat.client.broadcastMessage = function (id, date, name, pictureUrl, hometown, message) {
                 var createDate = new Date(date).toLocaleDateString() + ' ' + new Date(date).toLocaleTimeString();
-                vm.messages.push({ messageId: id, createDate: createDate, user: name, pictureUrl: pictureUrl, hometown: hometown, text: message });
+                vm.messages.push({
+                    messageId: id,
+                    createDate: createDate,
+                    user: name,
+                    pictureUrl: pictureUrl,
+                    hometown: hometown,
+                    text: message
+                });
                 $scope.$apply();
             };
 
@@ -44,7 +52,11 @@
                     var text = $('#message').val();
                     if (text != '') {
                         // Call the Send method on the hub. 
-                        chat.server.send(this.userInfo.name, this.userInfo.picture.data.url, this.userInfo.hometown.name, text);
+                        chat.server.send(
+                            this.userInfo.name,
+                            this.userInfo.picture.data.url,
+                            this.userInfo.hometown.name,
+                            text);
                         // Clear text box and reset focus for next comment. 
                         $('#message').val('').focus();
                     }
@@ -64,8 +76,9 @@
 
                         facebookService.getUserInfo().then(function (response) {
                             $scope.userInfo = response;
-
+                            vm.topics.push({ name: response.hometown.name });
                         });
+
                     } else if (response.status === 'not_authorized') {
                         // the user is logged in to Facebook, 
                         // but has not authenticated your app

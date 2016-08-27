@@ -50,7 +50,13 @@ namespace LetsTalk.Hubs
         public void Send(string name, string pictureUrl, string hometown, string message)
         {
             // Call the broadcastMessage method to update clients.
-            Clients.All.broadcastMessage(Guid.NewGuid().ToString(), DateTime.Now, name, pictureUrl, hometown, message);
+            Clients.All.broadcastMessage(
+                Guid.NewGuid().ToString(), //Id 
+                DateTime.Now, //CreateDate
+                name, //User
+                pictureUrl, //UserImage 
+                hometown, //UserHomeTown
+                message); //Message
         }
     }
 }

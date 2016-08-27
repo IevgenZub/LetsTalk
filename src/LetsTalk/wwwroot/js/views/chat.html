@@ -1,21 +1,31 @@
 ﻿<!---------------------------------------------------
     Master view of Chat
     --------------------------------------------------->
+
 <div data-ng-controller="chatController as vm">
 
     <!--Current User-->
     <p id="currentUser">
         <img ng-src="{{userInfo.picture.data.url}}" style="float:left; padding:5px">
         {{userInfo.name}}
+        <br />
         {{userInfo.hometown.name}}
     </p>
-
+    <br />
+    <div>
+        <h2>Topics</h2>
+        <ul data-ng-repeat="topic in vm.topics">
+            <li>
+                <a href="#{{topic.name}}">{{topic.name}}</a>
+            </li>
+        </ul>
+    </div>
     <!--Chat Form-->
     <form class="container" autocomplete="off" ng-submit="sendMessage()">
         <input type="text" id="message" />
         <input type="submit" id="sendmessage" value="Send" />
     </form>
-
+    <br />
     <!--Chat Messages-->
     <ul data-ng-repeat="message in vm.messages" class="well well-sm">
         <li>            
