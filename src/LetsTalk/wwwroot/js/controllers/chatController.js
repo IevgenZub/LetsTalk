@@ -51,11 +51,7 @@
                 } 
             });
 
-            setTimeout(function () {
-                fbAsyncInit();
-            }, 1000);
-
-            setTimeout(function () {
+            $scope.$on('FB', function (event, arg) {
                 FB.getLoginStatus(function (response) {
                     if (response.status === 'connected') {
                         // the user is logged in and has authenticated your
@@ -77,7 +73,7 @@
                         // the user isn't logged in to Facebook.
                     }
                 });
-            }, 2000);
+            });
         }
     }
 })();
