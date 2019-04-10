@@ -7,7 +7,7 @@
   "host" : "muni-api.demo.i-deal.com",
   "schemes" : [ "https" ],
   "paths" : {
-    "/api/v1/MyAccounts/{id}" : {
+    "/api/v1/MyUpdatedAccounts/{id}" : {
       "get" : {
         "tags" : [ "Accounts" ],
         "operationId" : "Accounts_Get",
