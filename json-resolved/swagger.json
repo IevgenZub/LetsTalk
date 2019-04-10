@@ -1,0 +1,3680 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "4-1-1000-1644",
+    "title" : "Muni API"
+  },
+  "host" : "muni-api.demo.i-deal.com",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/api/v1/MyAccounts/{id}" : {
+      "get" : {
+        "tags" : [ "Accounts" ],
+        "operationId" : "Accounts_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.AccountDto"
+            }
+          },
+          "404" : {
+            "description" : "NotFound",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.AccountResponse"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/AccountsTest/Show" : {
+      "get" : {
+        "tags" : [ "AccountsTest" ],
+        "operationId" : "AccountsTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/deals/{issueId}/usage" : {
+      "post" : {
+        "tags" : [ "Billing" ],
+        "operationId" : "Billing_Post",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "issueId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "billingDto",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Billing.BillingDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/dealsTest/{issueId}/usage" : {
+      "post" : {
+        "tags" : [ "BillingTest" ],
+        "operationId" : "BillingTest_Post",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "issueId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "in" : "body",
+          "name" : "billingDto",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Billing.BillingDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/crypto/sign" : {
+      "post" : {
+        "tags" : [ "CryptoTest" ],
+        "operationId" : "CryptoTest_Post",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "request",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Tests.Controller.SignatureRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Dispatcher" : {
+      "post" : {
+        "tags" : [ "Dispatcher" ],
+        "operationId" : "Dispatcher_Post",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/economic-events/{day}" : {
+      "get" : {
+        "tags" : [ "Econoday" ],
+        "operationId" : "Econoday_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "day",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Econoday.EconodayResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/economic-events-test/{day}" : {
+      "get" : {
+        "tags" : [ "EconodayTest" ],
+        "operationId" : "EconodayTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "day",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Features" : {
+      "get" : {
+        "tags" : [ "Features" ],
+        "operationId" : "Features_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.FeaturesDto"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "Features" ],
+        "operationId" : "Features_Put",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/System.Object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.FeaturesDto"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "401" : {
+            "description" : "You don't have right privilegies. You have to be an admin."
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/FeaturesTest" : {
+      "get" : {
+        "tags" : [ "FeaturesTest" ],
+        "operationId" : "FeaturesTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.FeaturesDto"
+            }
+          }
+        },
+        "deprecated" : false
+      },
+      "put" : {
+        "tags" : [ "FeaturesTest" ],
+        "operationId" : "FeaturesTest_Put",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/System.Object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ResponseBase"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/issues/{id}" : {
+      "get" : {
+        "tags" : [ "Issues" ],
+        "operationId" : "Issues_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueResponseV2"
+            }
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Issues" : {
+      "get" : {
+        "tags" : [ "Issues" ],
+        "operationId" : "Issues_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "issuesRequest.page",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 2147483647,
+          "minimum" : 0,
+          "format" : "int32"
+        }, {
+          "name" : "issuesRequest.pageSize",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32"
+        }, {
+          "name" : "issuesRequest.sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "issuesRequest.includeCompetitive",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "issuesRequest.includeNonManaged",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssuesResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Issues/{id}" : {
+      "get" : {
+        "tags" : [ "Issues" ],
+        "operationId" : "Issues_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueResponse"
+            }
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/IssuesTest/Show" : {
+      "get" : {
+        "tags" : [ "IssuesTest" ],
+        "operationId" : "IssuesTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/IssuesTest/Show" : {
+      "get" : {
+        "tags" : [ "IssuesTest" ],
+        "operationId" : "IssuesTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/IssuesTest/List" : {
+      "get" : {
+        "tags" : [ "IssuesTest" ],
+        "operationId" : "IssuesTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "issuesRequest.username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "issuesRequest.password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "issuesRequest.page",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 2147483647,
+          "minimum" : 0,
+          "format" : "int32"
+        }, {
+          "name" : "issuesRequest.pageSize",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "maximum" : 100,
+          "minimum" : 1,
+          "format" : "int32"
+        }, {
+          "name" : "issuesRequest.sort",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "issuesRequest.includeCompetitive",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "issuesRequest.includeNonManaged",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/IssuesTest/{id}" : {
+      "get" : {
+        "tags" : [ "IssuesTest" ],
+        "operationId" : "IssuesTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueResponseV2"
+            }
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Issues/{issueId}/Orders" : {
+      "get" : {
+        "tags" : [ "Orders" ],
+        "operationId" : "Orders_List",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "issueId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Orders.OrdersResponse"
+            }
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/IssuesTest/{issueId}/orders" : {
+      "get" : {
+        "tags" : [ "OrdersTest" ],
+        "operationId" : "OrdersTest_List",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "userName",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "issueId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/PublicDeals" : {
+      "get" : {
+        "tags" : [ "PublicDeals" ],
+        "operationId" : "PublicDeals_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "pSaleDateFrom",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Deals.PublicDealsResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/PublicDealsTest/List" : {
+      "get" : {
+        "tags" : [ "PublicDealsTest" ],
+        "operationId" : "PublicDealsTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "pSaleDateFrom",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/session/refresh" : {
+      "post" : {
+        "tags" : [ "Session" ],
+        "operationId" : "Session_Post",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.SessionResponse"
+            }
+          },
+          "401" : {
+            "description" : "Can`t refresh session"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/session/trusted" : {
+      "post" : {
+        "tags" : [ "Session" ],
+        "operationId" : "Session_Post",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "sessionRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.TrustedClientSessionRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Session" : {
+      "get" : {
+        "tags" : [ "Session" ],
+        "operationId" : "Session_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.SessionResponse"
+            }
+          }
+        },
+        "deprecated" : false
+      },
+      "post" : {
+        "tags" : [ "Session" ],
+        "operationId" : "Session_Post",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "sessionRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.SessionRequest"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Created",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.SessionResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid session request parameters"
+          },
+          "401" : {
+            "description" : "Can`t create session"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Settings" : {
+      "get" : {
+        "tags" : [ "Settings" ],
+        "operationId" : "Settings_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Settings.SettingsDto"
+            }
+          },
+          "404" : {
+            "description" : "NotFound",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Settings.SettingsResponse"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/SettingsTest" : {
+      "get" : {
+        "tags" : [ "SettingsTest" ],
+        "operationId" : "SettingsTest_Get",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Settings.SettingsDto"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/ubs/account/validation" : {
+      "post" : {
+        "tags" : [ "UbsAccounts" ],
+        "operationId" : "UbsAccounts_PostValidation",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "request",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Ubs.Accounts.AccountLookupRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/ubs/order/validation" : {
+      "post" : {
+        "tags" : [ "UbsOrders" ],
+        "operationId" : "UbsOrders_PostValidation",
+        "consumes" : [ "application/json", "text/json" ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "validationOrders",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Ubs.Orders.OrderValidationRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/us-treasuries" : {
+      "get" : {
+        "tags" : [ "UsTreasuries" ],
+        "operationId" : "UsTreasuries_GetUsTreasuriesSnapshot",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Treasures.TreasurySecuritiesSnapshotDto"
+              }
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/us-treasures-test/GetSnapshots" : {
+      "get" : {
+        "tags" : [ "UsTreasuriesTest" ],
+        "operationId" : "UsTreasuriesTest_GetUsTreasuriesSnapshot",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "required" : false,
+          "type" : "string",
+          "format" : "date-time"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Issues/{id}/Wires" : {
+      "get" : {
+        "tags" : [ "Wires" ],
+        "operationId" : "Wires_List",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WiresResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/Issues/{id}/Wires" : {
+      "get" : {
+        "tags" : [ "Wires" ],
+        "operationId" : "Wires_ListV2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WiresResponseV2"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/Wires/{wireId}" : {
+      "get" : {
+        "tags" : [ "Wires" ],
+        "operationId" : "Wires_GetWire",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "wireId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WireResponse"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/Wires/{wireId}" : {
+      "get" : {
+        "tags" : [ "Wires" ],
+        "operationId" : "Wires_GetWireV2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "wireId",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WireResponseV2"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/WiresTest/List" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_List",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/WiresTest/Wire" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_GetWire",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "wireId",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/WiresTest/List" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_ListV2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v2/WiresTest/Wire" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_GetWirev2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "wireId",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/System.Object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/WiresTest/{id}" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_ListV2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WiresResponseV2"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/v1/WiresTest" : {
+      "get" : {
+        "tags" : [ "WiresTest" ],
+        "operationId" : "WiresTest_GetWireV2",
+        "consumes" : [ ],
+        "produces" : [ "application/json", "text/json" ],
+        "parameters" : [ {
+          "name" : "wireId",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WireResponseV2"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "404" : {
+            "description" : "There are problems with your credentials"
+          }
+        },
+        "deprecated" : false
+      }
+    }
+  },
+  "definitions" : {
+    "Ipreo.Muni.Api.Host.Models.Accounts.AccountDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "companyId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountName" : {
+          "type" : "string"
+        },
+        "reportedTotalAssets" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "totalFIAssets" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "moneyType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.MoneyTypeDto"
+        },
+        "address" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.AddressDto"
+        },
+        "assetsUnderManagement" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.AssetsUnderManagementDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Accounts.MoneyTypeDto" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Accounts.AddressDto" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "zip" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Accounts.AssetsUnderManagementDto" : {
+      "type" : "object",
+      "properties" : {
+        "parentSecurityType" : {
+          "type" : "string"
+        },
+        "securityCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "reportedAssetsAmount" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "reportedChangedAmount" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "aggregateChangePercentage" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "sharePercentageByAssetType" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Accounts.AccountResponse" : {
+      "type" : "object",
+      "properties" : {
+        "account" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Accounts.AccountDto"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.ErrorDto" : {
+      "type" : "object",
+      "properties" : {
+        "message" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string",
+          "enum" : [ "Continue", "SwitchingProtocols", "OK", "Created", "Accepted", "NonAuthoritativeInformation", "NoContent", "ResetContent", "PartialContent", "MultipleChoices", "Ambiguous", "MovedPermanently", "Moved", "Found", "Redirect", "SeeOther", "RedirectMethod", "NotModified", "UseProxy", "Unused", "TemporaryRedirect", "RedirectKeepVerb", "BadRequest", "Unauthorized", "PaymentRequired", "Forbidden", "NotFound", "MethodNotAllowed", "NotAcceptable", "ProxyAuthenticationRequired", "RequestTimeout", "Conflict", "Gone", "LengthRequired", "PreconditionFailed", "RequestEntityTooLarge", "RequestUriTooLong", "UnsupportedMediaType", "RequestedRangeNotSatisfiable", "ExpectationFailed", "UpgradeRequired", "InternalServerError", "NotImplemented", "BadGateway", "ServiceUnavailable", "GatewayTimeout", "HttpVersionNotSupported" ]
+        },
+        "fields" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "System.Object" : {
+      "type" : "object"
+    },
+    "Ipreo.Muni.Api.Host.Models.Billing.BillingDto" : {
+      "type" : "object",
+      "required" : [ "app" ],
+      "properties" : {
+        "app" : {
+          "type" : "string",
+          "enum" : [ "Gameday" ]
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Tests.Controller.SignatureRequest" : {
+      "type" : "object",
+      "properties" : {
+        "payload" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MediatR.IRequest" : {
+      "type" : "object"
+    },
+    "Ipreo.Muni.Api.Host.Models.Econoday.EconodayResponse" : {
+      "type" : "object",
+      "properties" : {
+        "events" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Econoday.EconodayDto"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Econoday.EconodayDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "createdAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "updatedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "releasedAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "releaseFor" : {
+          "type" : "string"
+        },
+        "frequency" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "attribute" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "highlights" : {
+          "type" : "string"
+        },
+        "definition" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "values" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.FeaturesDto" : {
+      "type" : "object",
+      "properties" : {
+        "routes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.RoutesDto"
+          }
+        },
+        "navigation" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.NavigationDto"
+          }
+        },
+        "dashboardCards" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.DashboardCardsDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.RoutesDto" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string"
+        },
+        "module" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.ModuleDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.NavigationDto" : {
+      "type" : "object",
+      "properties" : {
+        "icon" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "path" : {
+          "type" : "string"
+        },
+        "children" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.ChildrenDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.DashboardCardsDto" : {
+      "type" : "object",
+      "properties" : {
+        "position" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.ParamsDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.ModuleDto" : {
+      "type" : "object",
+      "properties" : {
+        "parameters" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.ModuleParamsDto"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "version" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.ChildrenDto" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "icon" : {
+          "type" : "string"
+        },
+        "path" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.ParamsDto" : {
+      "type" : "object",
+      "properties" : {
+        "env" : {
+          "type" : "string"
+        },
+        "apiHost" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.ModuleParamsDto" : {
+      "type" : "object",
+      "properties" : {
+        "platform" : {
+          "type" : "string"
+        },
+        "env" : {
+          "type" : "string"
+        },
+        "apiHost" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Features.FeaturesResponse" : {
+      "type" : "object",
+      "properties" : {
+        "features" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Features.FeaturesDto"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.ResponseBase" : {
+      "type" : "object",
+      "properties" : {
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssueResponseV2" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "workingVersion" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueShowDtoV2"
+        },
+        "releasedVersion" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueShowDtoV2"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssueShowDtoV2" : {
+      "type" : "object",
+      "properties" : {
+        "dealType" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "bankQualifiedInd" : {
+          "type" : "boolean"
+        },
+        "seniorManagerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoV2Dto"
+        },
+        "issuerDepartement" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssuerDepartementDto"
+        },
+        "obligor" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.ObligorDto"
+        },
+        "financialAdvisor" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.FinancialAdvisorDto"
+          }
+        },
+        "bondCounsel" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.BondCounselDto"
+          }
+        },
+        "saleDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "saleDateTimeZone" : {
+          "type" : "string"
+        },
+        "expectedPricingDate" : {
+          "type" : "string"
+        },
+        "weekOfInd" : {
+          "type" : "boolean"
+        },
+        "dayToDayInd" : {
+          "type" : "boolean"
+        },
+        "toBeDeterminedInd" : {
+          "type" : "boolean"
+        },
+        "dealStatus" : {
+          "type" : "string"
+        },
+        "syndicate" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.SynUnderwriterV2Dto"
+          }
+        },
+        "orderPeriod" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.OrderPeriodV2Dto"
+        },
+        "repricingOrderPeriod" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.RepricingOrderPeriodDto"
+        },
+        "categories" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CategoryV2Dto"
+          }
+        },
+        "gamedaySettings" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.GamedaySettingsDto"
+        },
+        "series" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.SeriesV2Dto"
+          }
+        },
+        "maturities" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityV2Dto"
+          }
+        },
+        "pricingStatus" : {
+          "type" : "string"
+        },
+        "posURL" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "shortTermRating" : {
+          "type" : "string"
+        },
+        "longTermRating" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "awardDate" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "issuerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "orionId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "shortName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssuerDepartementDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.ObligorDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.FinancialAdvisorDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.BondCounselDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.SynUnderwriterV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "orionId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "departmentName" : {
+          "type" : "string"
+        },
+        "role" : {
+          "type" : "string"
+        },
+        "shortName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.OrderPeriodV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "beginDate" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.RepricingOrderPeriodDto" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string"
+        },
+        "beginDate" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CategoryV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "priority" : {
+          "type" : "string"
+        },
+        "groupCode" : {
+          "type" : "string"
+        },
+        "groupName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.GamedaySettingsDto" : {
+      "type" : "object",
+      "properties" : {
+        "enabled" : {
+          "type" : "boolean"
+        },
+        "allowExport" : {
+          "type" : "boolean"
+        },
+        "showAccountNames" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.SeriesV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "globalIssueId" : {
+          "type" : "string"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "altMinTaxInd" : {
+          "type" : "boolean"
+        },
+        "taxableInd" : {
+          "type" : "boolean"
+        },
+        "extraordinaryCallInd" : {
+          "type" : "boolean"
+        },
+        "firstCouponDate" : {
+          "type" : "string"
+        },
+        "couponFreq" : {
+          "type" : "string"
+        },
+        "datedDate" : {
+          "type" : "string"
+        },
+        "deliveryDate" : {
+          "type" : "string"
+        },
+        "settleDate" : {
+          "type" : "string"
+        },
+        "awardDate" : {
+          "type" : "string"
+        },
+        "initialTradeDate" : {
+          "type" : "string"
+        },
+        "ratings" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.RatingDto"
+          }
+        },
+        "ratingsUnderlying" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.RatingsUnderlyingDto"
+          }
+        },
+        "insurer" : {
+          "type" : "string"
+        },
+        "sourceOfRepayment" : {
+          "type" : "string"
+        },
+        "callFeatures" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CallFeatureV2Dto"
+          }
+        },
+        "subSectors" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "refunding" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.RefundingDto"
+        },
+        "remarketing" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.RemarketingDto"
+        },
+        "advRefunding" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.AdvRefundingDto"
+        },
+        "newMoney" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.NewMoneyDto"
+        },
+        "interestType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "seriesId" : {
+          "type" : "string"
+        },
+        "maturityDate" : {
+          "type" : "string"
+        },
+        "numberBonds" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "presentValue" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "securityType" : {
+          "type" : "string"
+        },
+        "putDate" : {
+          "type" : "string"
+        },
+        "orderPeriodTerminated" : {
+          "type" : "boolean"
+        },
+        "coupon" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "couponFreq" : {
+          "type" : "string"
+        },
+        "dayCount" : {
+          "type" : "string"
+        },
+        "yield" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "priceToMaturity" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "yieldToMaturity" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "price" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "sealedBidInd" : {
+          "type" : "boolean"
+        },
+        "notReoffered" : {
+          "type" : "boolean"
+        },
+        "soldNotAvailable" : {
+          "type" : "boolean"
+        },
+        "noRetail" : {
+          "type" : "boolean"
+        },
+        "insurer" : {
+          "type" : "string"
+        },
+        "callFeatures" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeaturesV2Dto"
+        },
+        "cusip" : {
+          "type" : "string"
+        },
+        "ratings" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturitiesRatingDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.RatingDto" : {
+      "type" : "object",
+      "properties" : {
+        "agency" : {
+          "type" : "string"
+        },
+        "rating" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "outlook" : {
+          "type" : "string"
+        },
+        "shortTerm" : {
+          "type" : "string"
+        },
+        "freeText" : {
+          "type" : "string"
+        },
+        "effectiveDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.RatingsUnderlyingDto" : {
+      "type" : "object",
+      "properties" : {
+        "agency" : {
+          "type" : "string"
+        },
+        "rating" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "shortTerm" : {
+          "type" : "string"
+        },
+        "freeText" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CallFeatureV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "securityType" : {
+          "type" : "string"
+        },
+        "displayText" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "firstCallDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.RefundingDto" : {
+      "type" : "object",
+      "properties" : {
+        "enabled" : {
+          "type" : "boolean"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.RemarketingDto" : {
+      "type" : "object",
+      "properties" : {
+        "enabled" : {
+          "type" : "boolean"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.AdvRefundingDto" : {
+      "type" : "object",
+      "properties" : {
+        "enabled" : {
+          "type" : "boolean"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.NewMoneyDto" : {
+      "type" : "object",
+      "properties" : {
+        "enabled" : {
+          "type" : "boolean"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeaturesV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "displayText" : {
+          "type" : "string"
+        },
+        "firstCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "firstCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "lastCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "maxPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "percentInc" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "callFreq" : {
+          "type" : "string"
+        },
+        "callFeatureSchedules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeatureScheduleV2Dto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturitiesRatingDto" : {
+      "type" : "object",
+      "properties" : {
+        "agency" : {
+          "type" : "string"
+        },
+        "rating" : {
+          "type" : "string"
+        },
+        "shortTerm" : {
+          "type" : "string"
+        },
+        "effectiveDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeatureScheduleV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "callDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "callPrice" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssuesRequest" : {
+      "type" : "object",
+      "properties" : {
+        "page" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 0,
+          "maximum" : 2147483647
+        },
+        "pageSize" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1,
+          "maximum" : 100
+        },
+        "sort" : {
+          "type" : "string"
+        },
+        "includeCompetitive" : {
+          "type" : "boolean"
+        },
+        "includeNonManaged" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssuesResponse" : {
+      "type" : "object",
+      "properties" : {
+        "count" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "issues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueListDto"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssueListDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "size" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "bankQualifiedInd" : {
+          "type" : "boolean"
+        },
+        "shortTermRating" : {
+          "type" : "string"
+        },
+        "longTermRating" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "dealType" : {
+          "$ref" : "#/definitions/System.Object"
+        },
+        "awardDate" : {
+          "type" : "string"
+        },
+        "saleDate" : {
+          "type" : "string"
+        },
+        "expectedPricingDate" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "bookManagerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "seniorManagerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "issuerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "faDepartments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssueResponse" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "workingVersion" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueShowDto"
+        },
+        "releasedVersion" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.IssueShowDto"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.IssueShowDto" : {
+      "type" : "object",
+      "properties" : {
+        "gamedayEnabled" : {
+          "type" : "boolean"
+        },
+        "allowGamedayExport" : {
+          "type" : "boolean"
+        },
+        "orderPeriod" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.OrderPeriodDto"
+        },
+        "newOrderPeriod" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.NewOrderPeriodDto"
+        },
+        "monitorOptions" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MonitorOptionsDto"
+        },
+        "series" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.SeriesDto"
+          }
+        },
+        "maturities" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityDto"
+          }
+        },
+        "syndicate" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.SynUnderwriterDto"
+          }
+        },
+        "categories" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CategoryDto"
+          }
+        },
+        "roleInfo" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Domain.Issues.RoleInfo"
+        },
+        "isUnreleased" : {
+          "type" : "boolean"
+        },
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "size" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "bankQualifiedInd" : {
+          "type" : "boolean"
+        },
+        "shortTermRating" : {
+          "type" : "string"
+        },
+        "longTermRating" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "dealType" : {
+          "$ref" : "#/definitions/System.Object"
+        },
+        "awardDate" : {
+          "type" : "string"
+        },
+        "saleDate" : {
+          "type" : "string"
+        },
+        "expectedPricingDate" : {
+          "type" : "string"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "bookManagerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "seniorManagerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "issuerDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+        },
+        "faDepartments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.OrderPeriodDto" : {
+      "type" : "object",
+      "properties" : {
+        "beginDate" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.NewOrderPeriodDto" : {
+      "type" : "object",
+      "properties" : {
+        "beginDate" : {
+          "type" : "string"
+        },
+        "endDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MonitorOptionsDto" : {
+      "type" : "object",
+      "properties" : {
+        "restrictActiveOrdPerInd" : {
+          "type" : "boolean"
+        },
+        "showTermOrdPerInd" : {
+          "type" : "boolean"
+        },
+        "showOversubscribedMatInd" : {
+          "type" : "boolean"
+        },
+        "showOrdDetailsInd" : {
+          "type" : "boolean"
+        },
+        "separateSeriesOrTypeInd" : {
+          "type" : "boolean"
+        },
+        "showOrdDetailsRsaInd" : {
+          "type" : "boolean"
+        },
+        "showOrdDetailsAcctNmInd" : {
+          "type" : "boolean"
+        },
+        "showOrdDetailsRepNumInd" : {
+          "type" : "boolean"
+        },
+        "showOrdDetailsRepNmInd" : {
+          "type" : "boolean"
+        },
+        "columns" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.ColumnsDto"
+          }
+        },
+        "firmInitials" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.SeriesDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "string"
+        },
+        "altMinTaxInd" : {
+          "type" : "boolean"
+        },
+        "taxableInd" : {
+          "type" : "boolean"
+        },
+        "firstCouponDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "datedDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "deliveryDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "settleDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "awardDate" : {
+          "type" : "string"
+        },
+        "moodysRatingCode" : {
+          "type" : "string"
+        },
+        "moodysRatingStatusCode" : {
+          "type" : "string"
+        },
+        "spRatingCode" : {
+          "type" : "string"
+        },
+        "spRatingStatusCode" : {
+          "type" : "string"
+        },
+        "fitchRatingCode" : {
+          "type" : "string"
+        },
+        "fitchRatingStatusCode" : {
+          "type" : "string"
+        },
+        "shortTermMoodysRatingCode" : {
+          "type" : "string"
+        },
+        "shortTermSpRatingCode" : {
+          "type" : "string"
+        },
+        "shortTermFitchRatingCode" : {
+          "type" : "string"
+        },
+        "insurer" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.InsurerDto"
+        },
+        "seriesSecurity" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.SeriesSecurityDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maturityDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "seriesId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "coupon" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "numberBonds" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "yieldPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "dollarPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "orComputedPriceYield" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "sealedBidInd" : {
+          "type" : "boolean"
+        },
+        "deletedInd" : {
+          "type" : "boolean"
+        },
+        "orderPeriodTerminated" : {
+          "type" : "boolean"
+        },
+        "securityType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "insurer" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.InsurerDto"
+        },
+        "callFeatures" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeaturesDto"
+        },
+        "matCallPrices" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallPricesDto"
+          }
+        },
+        "matNmCallSchedule" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallPricesDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.SynUnderwriterDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "departmentName" : {
+          "type" : "string"
+        },
+        "role" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CategoryDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "priority" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "groupCode" : {
+          "type" : "string"
+        },
+        "groupName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Domain.Issues.RoleInfo" : {
+      "type" : "object",
+      "properties" : {
+        "role" : {
+          "type" : "string"
+        },
+        "entitlementTypeCode" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.ColumnsDto" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "order" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.InsurerDto" : {
+      "type" : "object",
+      "properties" : {
+        "activeInd" : {
+          "type" : "boolean"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "shortName" : {
+          "type" : "string"
+        },
+        "mdsInsurerCd" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.SeriesSecurityDto" : {
+      "type" : "object",
+      "properties" : {
+        "callFeatures" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CallFeaturesDto"
+        },
+        "callFeaturesFreeText" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CallFeaturesFreeTextDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeaturesDto" : {
+      "type" : "object",
+      "properties" : {
+        "displayText" : {
+          "type" : "string"
+        },
+        "maturityCallFeatureId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maturityId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "daysToCallNotice" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firstCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "firstCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "isCallFeatureScheduleLoaded" : {
+          "type" : "boolean"
+        },
+        "lastCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "maxPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "percentInc" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "callFeatureType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "daysType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "callFreq" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "callFeatureSchedules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeatureScheduleDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityCallPricesDto" : {
+      "type" : "object",
+      "properties" : {
+        "callDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "callPrice" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CallFeaturesDto" : {
+      "type" : "object",
+      "properties" : {
+        "callFeatureId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "displayText" : {
+          "type" : "string"
+        },
+        "securityTypeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "daysToCallNotice" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firstCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "firstCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "isCallFeatureScheduleLoaded" : {
+          "type" : "boolean"
+        },
+        "lastCallDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lastCallPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "maxPrice" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "percentInc" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "callFeatureType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "callFreq" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "daysType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "callFeatureSchedules" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CallFeatureScheduleDto"
+          }
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CallFeaturesFreeTextDto" : {
+      "type" : "object",
+      "properties" : {
+        "freeText" : {
+          "type" : "string"
+        },
+        "securityTypeId" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.MaturityCallFeatureScheduleDto" : {
+      "type" : "object",
+      "properties" : {
+        "maturityCallScheduleId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "callDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "callPrice" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Issues.CallFeatureScheduleDto" : {
+      "type" : "object",
+      "properties" : {
+        "callScheduleId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maturityId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "callDate" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "callPrice" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Tests.Controller.IssuesTestRequest" : {
+      "type" : "object",
+      "required" : [ "password", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "page" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 0,
+          "maximum" : 2147483647
+        },
+        "pageSize" : {
+          "type" : "integer",
+          "format" : "int32",
+          "minimum" : 1,
+          "maximum" : 100
+        },
+        "sort" : {
+          "type" : "string"
+        },
+        "includeCompetitive" : {
+          "type" : "boolean"
+        },
+        "includeNonManaged" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Orders.OrdersResponse" : {
+      "type" : "object",
+      "properties" : {
+        "orders" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Orders.OrdersDto"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Orders.OrdersDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "seriesId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maturityId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firmId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "accountName" : {
+          "type" : "string"
+        },
+        "orderNumber" : {
+          "type" : "string"
+        },
+        "parentWarehouseId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "warehouseId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "repName" : {
+          "type" : "string"
+        },
+        "repNumber" : {
+          "type" : "string"
+        },
+        "retailInd" : {
+          "type" : "boolean"
+        },
+        "amount" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "comments" : {
+          "type" : "string"
+        },
+        "brokerDealerFirmId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "lastModifiedDate" : {
+          "type" : "string"
+        },
+        "accountType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.StandingDataTypicalDto"
+        },
+        "moneyType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Orders.MoneyTypeDto"
+        },
+        "orderType" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Orders.OrderTypeDto"
+        },
+        "syndicateDepartment" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Orders.SyndicateDepartmentDto"
+        },
+        "category" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.CategoryDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Orders.MoneyTypeDto" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Orders.OrderTypeDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "priorityInd" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Orders.SyndicateDepartmentDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "role" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Deals.PublicDealsResponse" : {
+      "type" : "object",
+      "properties" : {
+        "issues" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/System.Object"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Session.SessionResponse" : {
+      "type" : "object",
+      "properties" : {
+        "sub" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "deptId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "firmId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "deptType" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "persona" : {
+          "type" : "string"
+        },
+        "websocketGatewaySession" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Session.UserSession"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Session.UserSession" : {
+      "type" : "object",
+      "properties" : {
+        "isEstablished" : {
+          "type" : "boolean"
+        },
+        "token" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Session.TrustedClientSessionRequest" : {
+      "type" : "object",
+      "required" : [ "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Session.SessionRequest" : {
+      "type" : "object",
+      "required" : [ "password", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Settings.SettingsDto" : {
+      "type" : "object",
+      "properties" : {
+        "defaultDealVersion" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Settings.DefaultDealVersion"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Settings.DefaultDealVersion" : {
+      "type" : "object",
+      "properties" : {
+        "negotiated" : {
+          "type" : "string"
+        },
+        "competitive" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Settings.SettingsResponse" : {
+      "type" : "object",
+      "properties" : {
+        "settings" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Settings.SettingsDto"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Ubs.Accounts.AccountLookupRequest" : {
+      "type" : "object",
+      "required" : [ "accountNumber", "sentBy", "usaId", "uuId" ],
+      "properties" : {
+        "emulator" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Ubs.EmulatorRequest"
+        },
+        "accountNumber" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 7,
+          "pattern" : "\\w+"
+        },
+        "sentBy" : {
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9]{1,7}$"
+        },
+        "usaId" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 4
+        },
+        "uuId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Ubs.EmulatorRequest" : {
+      "type" : "object",
+      "properties" : {
+        "isNotValidated" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Ubs.Orders.OrderValidationRequest" : {
+      "type" : "object",
+      "required" : [ "uuId" ],
+      "properties" : {
+        "emulator" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Ubs.EmulatorRequest"
+        },
+        "orders" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Ubs.Orders.OrderValidation"
+          }
+        },
+        "uuId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Ubs.Orders.OrderValidation" : {
+      "type" : "object",
+      "required" : [ "accountNumber", "cusip", "enteredBy", "orderAmount", "orderId", "ordersDateTime", "repNumber", "takenBy" ],
+      "properties" : {
+        "accountName" : {
+          "type" : "string"
+        },
+        "accountNumber" : {
+          "type" : "string",
+          "minLength" : 7,
+          "maxLength" : 7
+        },
+        "accountType" : {
+          "type" : "string",
+          "enum" : [ "R", "I", "BD", "IN", "STOCK", "S" ]
+        },
+        "clearsThrough" : {
+          "type" : "string"
+        },
+        "cusip" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 9
+        },
+        "discUsed" : {
+          "type" : "string",
+          "enum" : [ "Y", "N", "BL", "NA" ]
+        },
+        "distributionAgreement" : {
+          "type" : "boolean"
+        },
+        "dvpAccount" : {
+          "type" : "boolean"
+        },
+        "enteredBy" : {
+          "type" : "string",
+          "minLength" : 7,
+          "maxLength" : 7
+        },
+        "intComment" : {
+          "type" : "string"
+        },
+        "intSettl" : {
+          "type" : "string"
+        },
+        "moneyType" : {
+          "type" : "string"
+        },
+        "orderId" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 30
+        },
+        "orderAmount" : {
+          "type" : "number",
+          "format" : "double",
+          "minimum" : 0
+        },
+        "ordersDateTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "orderType" : {
+          "type" : "string",
+          "enum" : [ "PSGN", "GN", "PSGC", "GC", "PSND", "ND", "PSCD", "CD", "PS", "MEM" ]
+        },
+        "relatedParty" : {
+          "type" : "boolean"
+        },
+        "repNumber" : {
+          "type" : "string",
+          "minLength" : 4,
+          "maxLength" : 4
+        },
+        "salesOffice" : {
+          "type" : "string"
+        },
+        "solicited" : {
+          "type" : "boolean"
+        },
+        "takenBy" : {
+          "type" : "string",
+          "minLength" : 7,
+          "maxLength" : 7
+        },
+        "underwriter" : {
+          "type" : "string"
+        },
+        "usdValue" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Treasures.TreasurySecuritiesSnapshotDto" : {
+      "type" : "object",
+      "properties" : {
+        "securityId" : {
+          "type" : "string"
+        },
+        "current" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Treasures.TreasurySecurityItemDto"
+        },
+        "previous" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Treasures.TreasurySecurityItemDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Treasures.TreasurySecurityItemDto" : {
+      "type" : "object",
+      "properties" : {
+        "price" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "yield" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "eodType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WiresResponse" : {
+      "type" : "object",
+      "properties" : {
+        "wires" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WiresListDto"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WiresListDto" : {
+      "type" : "object",
+      "properties" : {
+        "wireId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireType" : {
+          "type" : "string"
+        },
+        "wireTitle" : {
+          "type" : "string"
+        },
+        "receivedDateTimeUtc" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WiresResponseV2" : {
+      "type" : "object",
+      "properties" : {
+        "wires" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Wires.WiresListV2Dto"
+          }
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WiresListV2Dto" : {
+      "type" : "object",
+      "properties" : {
+        "wireId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireType" : {
+          "type" : "string"
+        },
+        "wireTitle" : {
+          "type" : "string"
+        },
+        "receivedDateTimeUtc" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "bookManager" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoV2Dto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WireResponse" : {
+      "type" : "object",
+      "properties" : {
+        "issueId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireType" : {
+          "type" : "string"
+        },
+        "wireTitle" : {
+          "type" : "string"
+        },
+        "receivedDateTimeUtc" : {
+          "type" : "string"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    },
+    "Ipreo.Muni.Api.Host.Models.Wires.WireResponseV2" : {
+      "type" : "object",
+      "properties" : {
+        "issueId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "wireType" : {
+          "type" : "string"
+        },
+        "wireTitle" : {
+          "type" : "string"
+        },
+        "receivedDateTimeUtc" : {
+          "type" : "string"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "bookManager" : {
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.Issues.DeptMinInfoV2Dto"
+        },
+        "error" : {
+          "readOnly" : true,
+          "$ref" : "#/definitions/Ipreo.Muni.Api.Host.Models.ErrorDto"
+        }
+      }
+    }
+  }
+}
